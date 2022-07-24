@@ -32,7 +32,10 @@ const Home: NextPage = () => {
 
     const [text, setText] = useState('beforeText')
 
-    const peopleArray = ['zaki', 'shoma', 'than', 'trieu']
+    const peopleArray = [{name: 'zaki', age: 28}, {name: 'shoma', age: 26}, {name: 'than', age: 29}, {
+        name: 'trieu',
+        age: 27
+    }]
 
     return (
         <div className={styles.container}>
@@ -52,11 +55,30 @@ const Home: NextPage = () => {
                 >
                     button
                 </Button>
-                <p>{text}</p>
             </Box>
-            {peopleArray.map((person, index) => {
-                return <p key={index}>{person}</p>
-            })}
+            <Box>
+                <Box
+                    p={'10px'}
+                    gap={'10px'}
+                    display={'flex'}
+                >
+                    {peopleArray.map((personInfo, index) => {
+                        return (
+                            <Box
+                                p={'10px'}
+                                border={'1px solid black'}
+                                borderRadius={'5px'}
+                                key={index}
+                                gap={'10px'}
+                                boxShadow={'md'}
+                            >
+                                <Text>名前:{personInfo.name}</Text>
+                                <Text>年齢:{personInfo.age}</Text>
+                            </Box>
+                        )
+                    })}
+                </Box>
+            </Box>
             <footer className={styles.footer}>
                 <a
                     href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
