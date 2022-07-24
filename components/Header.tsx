@@ -5,6 +5,7 @@ export const Header = ({times}:{times:string}) => {
     return (
         <Box
             width="100%"
+            top={'0px'}
             height={'100px'}
             bg={'black'}
             py='5px'
